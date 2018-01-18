@@ -1,1 +1,1 @@
-SELECT * FROM create_post
+SELECT * FROM create_post;

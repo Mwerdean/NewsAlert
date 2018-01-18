@@ -41,9 +41,9 @@ module.exports = {
 
 
     get(req,res){
+        const db = req.app.get('db')
         const {number} = req.body
         const number5=[]
-        const db = req.app.get('db')
         db.find_phone(number).then((res) => {
             number5.push(number)
         }).then(() => {
@@ -56,6 +56,17 @@ module.exports = {
         const { auth0_id, title, content } = req.body
 
         db.create_post([auth0_id, title, content])
+        .then(() => res.status(200).send())
+        .catch(() => res.status(500).send())
+    },
+
+    getforum(req,res) {
+        const { auth0_id, title, content } = req.body
+        const db = req.app.get('db')
+
+        db.find_post().then((create_post) => {
+            res.send(create_post)
+        })
         .then(() => res.status(200).send())
         .catch(() => res.status(500).send())
     }

@@ -9,12 +9,13 @@ class Create extends Component {
         super()
         this.state = {
             titleInput: '',
-            textInput: ''
+            textInput: '',
         }
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleTextChange = this.handleTextChange.bind(this)
         this.createPost = this.createPost.bind(this)
     }
+
 
     handleTitleChange(value) {
         this.setState({ titleInput: value })

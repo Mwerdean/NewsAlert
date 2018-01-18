@@ -31,15 +31,36 @@ import { connect } from 'react-redux'
     `;
 
     class Forum extends Component {
+        constructor() {
+            super()
+            this.state = {
+                forumInfo: []  
+            }
+        }
     componentDidMount() {
         axios.get('/user-data').then(response => {
             if (response.data.user){
                 this.props.login(response.data.user)
             }
         })
+        
+        axios.get('http://localhost:3000/getforum').then((res)=> {
+            this.setState({ forumInfo: res.data })
+            console.log("res", this.state.forumInfo)
+        })
+        
     }
   render() {
     const { user } = this.props
+    var displayForum = this.state.forumInfo.map((element, index) => {
+        return (
+            <div key={index}>
+                <div>{element.auth0_id}</div>
+                <div>{element.title}</div>
+                <div>{element.content}</div>
+            </div>
+        )
+    })
     return (
     <StaggeredMotion
         defaultStyles={[
@@ -85,8 +106,8 @@ import { connect } from 'react-redux'
                 
                     </div>
                     <div className="content">
-                        <div className="frm1">
-                        content
+                        <div className="forum1">
+                        {displayForum}
                         </div>
                     </div>
                 </div>

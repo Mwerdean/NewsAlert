@@ -52,7 +52,7 @@ class Home extends Component {
     }
 
     onPhoneChange(event) {
-        this.setState({phoneRawValue: event.target.rawValue});
+        this.setState({ phoneRawValue: event.target.rawValue });
     }
 
     send(){
