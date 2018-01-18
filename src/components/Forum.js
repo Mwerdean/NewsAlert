@@ -54,10 +54,15 @@ import { connect } from 'react-redux'
     const { user } = this.props
     var displayForum = this.state.forumInfo.map((element, index) => {
         return (
-            <div key={index}>
-                <div>{element.auth0_id}</div>
-                <div>{element.title}</div>
+            <div key={index} className="contentforumpost">
+                <div className="postleftcontent">
+                    <div className="useridborder">User ID:<div>{element.auth0_id}</div></div>
+                    <div>this is where my upvote counter goes</div>
+                </div>
+                <div className="postrightcontent">
+                <h3>{element.title}</h3>
                 <div>{element.content}</div>
+                </div>
             </div>
         )
     })
@@ -87,7 +92,7 @@ import { connect } from 'react-redux'
             <div className="flex">
                 <div className="empty"></div>
                 <div className="middlebox">
-                    <div className="title">Forum</div>
+                    <div className="title">News Alert</div>
                     <div className="content">
                     
                       {user &&
@@ -105,14 +110,17 @@ import { connect } from 'react-redux'
                       {!user && <p className="butyoumust">You must log in! <Link to="/signin">Log In</Link></p>}
                 
                     </div>
-                    <div className="content">
+                    <div className="contentmain">
+                    <div className="title">Forum</div>
                         <div className="forum1">
                         {displayForum}
                         </div>
                     </div>
                 </div>
                 <div className="empty">
-                <Link to="/create"><button className="createbutton">Create&nbsp;Post</button></Link>
+                <div>
+                    <Link to="/create"><button className="createbutton">Create&nbsp;Post</button></Link>
+                 </div>
                 </div> 
             </div>
         </ContentWrapper>

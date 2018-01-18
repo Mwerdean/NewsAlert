@@ -20,15 +20,23 @@
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  height:93vh;  
+  min-height: 93vh;
+  height: 100%;
 }
+
 
 .empty {
   width:20%;
 }
 
+.contentmain{
+  width:100%;
+  font-family: "Lato";
+  margin-bottom: 10px; 
+}
 .content {
   width:100%;
+  padding: 10px;
   background-color: #C6C6C6;
   font-family: "Lato";
   margin-bottom: 10px;
@@ -78,8 +86,36 @@ box1{
   transition: all .15s ease-in-out;
   height: 40px;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 
 .createbutton:hover {
   background-color:  #b45918;
+}
+
+.contentforumpost {
+  width:100%;
+  padding: 10px;
+  background-color: #C6C6C6;
+  font-family: "Lato";
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+}
+
+.postleftcontent {
+  border-right: solid black 1px;
+  margin-right:5px;
+  padding-right: 5px;
+  flex:1.5;
+}
+
+.useridborder {
+  border-bottom: solid black 1px;
+  width:100%;
+  margin-bottom: 5px;
+}
+
+.postrightcontent {
+  flex:8.5;
 }
