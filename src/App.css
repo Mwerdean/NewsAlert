@@ -1,0 +1,85 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.title {
+  text-align: center;
+  font-family: 'Lobster', sans-serif;
+  font-size: 60px;
+  margin:0 auto;
+  width:60%;
+}
+
+.flex{
+  display:flex;
+}
+
+.forumbackground {
+  background-image: url("https://i.imgur.com/twXSJT5.jpg?1");
+  width: 100%;
+  padding-top: 150px;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  height:93vh;  
+}
+
+.empty {
+  width:20%;
+}
+
+.content {
+  width:100%;
+  background-color: #C6C6C6;
+  font-family: "Lato";
+  margin-bottom: 10px;
+}
+
+.middlebox{
+  width:100%; 
+}
+
+box1{
+  background-image: url('./images/image_part_003.jpg');
+  width: 100%;
+  padding-top: 150px;
+  height: 950px;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  height:93vh;
+}
+
+.accountinfo {
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: .75px;
+}
+
+.infopicture {
+  height: 160px;
+}
+
+.butyoumust {
+  font-size: 20px;
+  padding:20px;
+}
+
+.createbutton {
+  background-color: #8B4513;
+  border-color: #8B4513;
+  font-size:18px;
+  padding:5px;
+  font-family: 'Lato';
+  text-transform: uppercase;
+  color:white;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .15s ease-in-out;
+  height: 40px;
+  letter-spacing: 1px;
+}
+
+.createbutton:hover {
+  background-color:  #b45918;
+}
