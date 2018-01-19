@@ -60,8 +60,11 @@ import { connect } from 'react-redux'
                     <div>this is where my upvote counter goes</div>
                 </div>
                 <div className="postrightcontent">
-                <h3>{element.title}</h3>
-                <div>{element.content}</div>
+                <div className="titlebuttons">
+                    <h3>{element.title}</h3>
+                    <div className="actionbuttons"><div> Update </div><div> | | </div><div> Delete </div></div>
+                </div>
+                    <div>{element.content}</div>
                 </div>
             </div>
         )

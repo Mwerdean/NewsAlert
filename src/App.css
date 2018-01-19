@@ -119,3 +119,16 @@ box1{
 .postrightcontent {
   flex:8.5;
 }
+
+.actionbuttons {
+  display:flex;
+}
+
+.actionbuttons > div {
+  margin-right: 5px;
+}
+
+.titlebuttons {
+  display: flex;
+  justify-content: space-between;
+}
