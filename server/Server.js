@@ -28,8 +28,8 @@ app.post('/phone_database', controller.add )
 app.post('/twilio', controller.send )
 app.get('/get' , controller.get)
 app.post('/post_database', controller.createPost)
-app.get('/getforum' , controller.getforum)
-
+app.get('/getforum' , controller.getForum)
+app.delete('/deletepost/:id' , controller.deletePost)
 
 
 

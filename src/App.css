@@ -126,9 +126,26 @@ box1{
 
 .actionbuttons > div {
   margin-right: 5px;
+  margin-left: 5px;
 }
 
 .titlebuttons {
   display: flex;
   justify-content: space-between;
+}
+
+.rightbuttons {
+  cursor: pointer;
+}
+
+.rightbuttons:hover {
+  color:white;
+}
+
+.submittous {
+  text-align: center;
+  font-family: 'Lobster', sans-serif;
+  font-size: 45px;
+  margin:0 auto;
+  width:60%;
 }

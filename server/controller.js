@@ -60,14 +60,23 @@ module.exports = {
         .catch(() => res.status(500).send())
     },
 
-    getforum(req,res) {
-        const { auth0_id, title, content } = req.body
+    getForum(req,res) {
         const db = req.app.get('db')
 
         db.find_post().then((create_post) => {
             res.send(create_post)
         })
         .then(() => res.status(200).send())
+        .catch(() => res.status(500).send())
+    },
+
+    deletePost(req,res){
+        const { params } = req
+        const db = req.app.get('db')
+
+        db.delete_post([params.id]).then ((create_post) => {
+            res.status(200).send(create_post)
+        })
         .catch(() => res.status(500).send())
     }
 }

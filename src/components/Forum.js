@@ -34,9 +34,13 @@ import { connect } from 'react-redux'
         constructor() {
             super()
             this.state = {
-                forumInfo: []  
+                forumInfo: [],
+                edit: false
             }
+            this.deletePost = this.deletePost.bind(this)
+            this.editPost = this.editPost.bind(this)
         }
+
     componentDidMount() {
         axios.get('/user-data').then(response => {
             if (response.data.user){
@@ -48,8 +52,24 @@ import { connect } from 'react-redux'
             this.setState({ forumInfo: res.data })
             console.log("res", this.state.forumInfo)
         })
-        
+    
     }
+
+    deletePost(id) {
+        axios.delete(`http://localhost:3000/deletepost/${id}`).then((res) => {
+            console.log('responso', res.data)
+        }).then(() => {
+            axios.get('http://localhost:3000/getforum').then((res)=> {
+                this.setState({ forumInfo: res.data })
+                console.log("res", this.state.forumInfo)
+            })
+        })
+    }
+
+    editPost() {
+        this.setState({ edit:true })
+    }
+
   render() {
     const { user } = this.props
     var displayForum = this.state.forumInfo.map((element, index) => {
@@ -61,8 +81,8 @@ import { connect } from 'react-redux'
                 </div>
                 <div className="postrightcontent">
                 <div className="titlebuttons">
-                    <h3>{element.title}</h3>
-                    <div className="actionbuttons"><div> Update </div><div> | | </div><div> Delete </div></div>
+                    <h3 {``}>{element.title}</h3>
+                    <div className="actionbuttons"><a onClick = { this.editPost }> Edit </a><div> | | </div><a className="rightbuttons" onClick={ () => this.deletePost(element.id) }> Delete </a></div>
                 </div>
                     <div>{element.content}</div>
                 </div>

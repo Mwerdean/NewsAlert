@@ -1,12 +1,12 @@
 const initialState = {
-    user:null
+    user: null
 }
 
 const LOGIN = 'LOGIN'
 
 export const login = (user) => {
     return {
-        type:LOGIN,
+        type: LOGIN,
         payload: user,
     }
 }
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
         case LOGIN:
             return {
                 ...state,
-                user:action.payload
+                user: action.payload
             };
         default: return state;
     }

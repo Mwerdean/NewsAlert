@@ -46,7 +46,7 @@ class Create extends Component {
             <div className="flex">
                 <div className="empty"></div>
                 <div className="middlebox">
-                    <div className="title">Create</div>
+                    <div className="submittous">Submit to NewsAlert</div>
                     <div className="content">
                     {user &&
                         <div>
