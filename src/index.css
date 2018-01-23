@@ -40,6 +40,7 @@ body {
 
 /* .back2 {
  
+
 } */
 
 .backtotop:hover {
@@ -63,19 +64,26 @@ body {
   display:flex;
   margin:0 auto;
   justify-content: space-between;
+  width: 100%;
 }
 
 .logo {
-  margin: 0 auto;
-  opacity: 0;
+
+  transition: all .15s ease-in-out;
+  
 }
-.logo2{
+.logo2 > div {
   opacity: 1;
+
 }
-.logo > img {
-  width: 20%;
-  margin-top:5px;
+.logo > div {
+
+  margin-top:10px;
   margin-left:20px;
+  font-size: 28px;
+  font-family: 'Lobster', cursive; 
+  color: #e44;
+  letter-spacing: 1px;
 }
 
 
@@ -257,8 +265,8 @@ input.subinput:focus {
 
 
 .submitbtn {
-  background-color: #8B4513;
-  border-color: #8B4513;
+  background-color:  #ee4444;
+  border-color:  #ee4444;
   font-size:18px;
   padding: 20px;
   font-family: 'Lato';
@@ -273,7 +281,7 @@ input.subinput:focus {
 }
 
 .submitbtn:hover {
-  background-color:  #b45918;
+  background-color:  #d21414;
 }
 
 .a1 {
@@ -281,8 +289,3 @@ input.subinput:focus {
  text-align: center;
 }
 
-
-
-.qq {
-  margin-top: 200px;
-}

@@ -35,7 +35,7 @@ class App extends Component {
 <div>
 <nav className={`navbar  ${this.state.isMin ? 'navbar2' : ''}`}>
   <div className="navcont">
-    <div className={`logo ${this.state.isMin ? 'logo2' : ''}`}> <img src="https://i.imgur.com/wFi7Jur.png" title="source: imgur.com" alt="logo" /> </div>
+    <div className={`logo ${this.state.isMin ? 'logo2' : ''}`}> <div className="" >Matthew Werdean</div> </div>
     <div className={`navright ${this.state.isMin ? 'navr2' : ''}`} >
       <Link to='/' className="backtotop">HOME</Link>
       <div className="r2">|&nbsp;|</div>

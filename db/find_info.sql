@@ -1,0 +1,1 @@
+SELECT * FROM create_post WHERE id = $1 LIMIT 1

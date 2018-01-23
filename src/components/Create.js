@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import '../App.css'
 
+
 class Create extends Component {
     constructor() {
         super()
         this.state = {
             titleInput: '',
-            textInput: '',
+            textInput: ''
         }
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleTextChange = this.handleTextChange.bind(this)
@@ -19,12 +20,10 @@ class Create extends Component {
 
     handleTitleChange(value) {
         this.setState({ titleInput: value })
-        console.log(this.state.titleInput)
     }
 
     handleTextChange(value) {
         this.setState({ textInput: value })
-        console.log(this.state.textInput)
     }
 
     createPost() {
@@ -47,9 +46,9 @@ class Create extends Component {
                 <div className="empty"></div>
                 <div className="middlebox">
                     <div className="submittous">Submit to NewsAlert</div>
-                    <div className="content">
+                    <div className="content2">
                     {user &&
-                        <div>
+                        <div className="content2">
                             <div className="createinputs">
                                 <div>Title:</div>
                                 <input onChange={ event => this.handleTitleChange(event.target.value) }></input>

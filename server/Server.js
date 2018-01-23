@@ -30,8 +30,10 @@ app.get('/get' , controller.get)
 app.post('/post_database', controller.createPost)
 app.get('/getforum' , controller.getForum)
 app.delete('/deletepost/:id' , controller.deletePost)
-
-
+app.put('/updatepost/:id' , controller.updatePost)
+app.get('/getjoin' , controller.getJoin)
+app.put('/logout' , controller.logout)
+app.get('getforuminfo/:id', controller.getInfo)
 
 
 

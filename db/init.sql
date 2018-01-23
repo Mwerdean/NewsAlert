@@ -18,3 +18,11 @@ CREATE TABLE create_post (
     title TEXT,
     content TEXT
 );
+
+CREATE TABLE upvote (
+    ID SERIAL,
+    auth0_id TEXT,
+    upvoted BOOLEAN,
+    downvoted BOOLEAN,
+    count NUMBER, 
+)

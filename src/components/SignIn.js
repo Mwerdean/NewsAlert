@@ -3,6 +3,8 @@ import Auth0Lock from 'auth0-lock'
 import { connect } from 'react-redux'
 import { login } from '../ducks/reducer'
 import axios from 'axios'
+import '../css/signin.css'
+import { Link } from 'react-router-dom'
 
 
 class SignIn extends Component {
@@ -27,10 +29,18 @@ class SignIn extends Component {
     login() {
         this.lock.show()
     }
+
     render() {
         return (
-            <div>
+            <div className="bgclor">
+            <div className="logcolor" >
+            <h3 className="qe">Click to Sign-In</h3>
+            <div className="qw">
+                <Link to="/forum" className="goback">Go Back</Link>
+                <div className="linediv"></div>
                 <button onClick={ this.login } className="qq">Log In</button>
+                </div>
+                </div>
             </div>
         );
     }

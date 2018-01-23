@@ -1,0 +1,1 @@
+UPDATE create_post SET title = $2 , content = $3 WHERE id = $1

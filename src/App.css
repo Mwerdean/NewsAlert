@@ -1,12 +1,12 @@
 
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900');
 
 .title {
   text-align: center;
-  font-family: 'Lobster', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 60px;
-  margin:0 auto;
-  width:60%;
+  font-weight: bolder;
+  width:80%;
 }
 
 .flex{
@@ -34,13 +34,7 @@
   font-family: "Lato";
   margin-bottom: 10px; 
 }
-.content {
-  width:100%;
-  padding: 10px;
-  background-color: #C6C6C6;
-  font-family: "Lato";
-  margin-bottom: 10px;
-}
+
 
 .middlebox{
   width:100%; 
@@ -64,7 +58,21 @@ box1{
 }
 
 .infopicture {
-  height: 160px;
+  height: 140px;
+  margin: 0 auto;
+  border: 4px #ee4444 solid;
+}
+
+.spacing2 {
+  text-align: center;
+  margin:0 auto;
+  width: 100%;
+}
+
+.infopicture2 {
+  height: 120px;
+  width:90%;
+  margin: 5px;
 }
 
 .butyoumust {
@@ -72,14 +80,18 @@ box1{
   padding:20px;
 }
 
+.content2 {
+ background-color: #c6c6c6;
+}
+
 .createbutton {
-  background-color: #8B4513;
-  border-color: #8B4513;
+  background-color: #C6C6C6;
+  border-color: #C6C6C6;
   font-size:18px;
   padding:5px;
   font-family: 'Lato';
   text-transform: uppercase;
-  color:white;
+  color:black;
   text-align: center;
   border: 1px solid transparent;
   border-radius: .25rem;
@@ -87,20 +99,28 @@ box1{
   height: 40px;
   letter-spacing: 1px;
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .createbutton:hover {
-  background-color:  #b45918;
+  background-color:  #ee4444;
+}
+
+.center {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .contentforumpost {
-  width:100%;
+  width:90%;
   padding: 10px;
   background-color: #C6C6C6;
   font-family: "Lato";
   margin-bottom: 10px;
   border-radius: 5px;
   display: flex;
+  transition: all .15s ease-in-out;
+  font-family: "Lato";
 }
 
 .postleftcontent {
@@ -112,8 +132,9 @@ box1{
 
 .useridborder {
   border-bottom: solid black 1px;
-  width:100%;
+  width:150px;
   margin-bottom: 5px;
+  font-family: "Lato";
 }
 
 .postrightcontent {
@@ -139,7 +160,7 @@ box1{
 }
 
 .rightbuttons:hover {
-  color:white;
+  color:#ee4444;
 }
 
 .submittous {
@@ -149,3 +170,75 @@ box1{
   margin:0 auto;
   width:60%;
 }
+
+.flex2 {
+  display: flex;
+  text-align: center;
+  margin-bottom: 10px;
+  width: 100%;
+  
+}
+
+.vote {
+  margin: 0 auto;
+  border-radius: 5px;
+  border: none;
+  transition:  all .15s ease-in-out;
+}
+
+.vote:hover {
+  background-color: gray;
+}
+
+.ina {
+  margin: 5px;
+  border: solid black 1px;
+  height: 100px;
+  width: 300px;
+}
+
+.logbutton {
+  border-radius: 5px;
+  background-color: white;
+  border-color: white;
+}
+
+
+.emptyleft {
+  display:flex;
+  width:10%;
+}
+
+
+.emptyright {
+  width:30%;
+}
+
+.test5 {
+  background-color: #C6C6C6;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.test4 > div{
+  margin-top: 5px;
+  border-bottom: .5px gray solid;
+}
+
+.test3 {
+ border-bottom: .5px solid gray; 
+}
+
+.content {
+  width:90%;
+  margin: 0 auto;
+  font-family: "Lato";
+  margin-bottom: 10px;
+}
+
+.list {
+  font-size: 13px;
+  margin: 4px;
+  padding: 0;
+}
+

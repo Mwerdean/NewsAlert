@@ -1,0 +1,69 @@
+
+
+.qq {
+ 
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    transition: all .15s ease-in-out;
+    background-color: white;
+  }
+
+  .qq:hover {
+      background-color: #ee4444;
+  }
+
+  .qw {
+      text-align: center;
+      margin: 0 auto;
+      display:flex;
+      justify-content: space-around;
+  }
+
+  .qe {
+    margin-bottom: 20px;
+    color:black;
+    border-bottom: solid black 1px;
+  }
+
+  .bgclor {
+    background-image: url("https://i.redd.it/slrs1oigsna01.png");
+    width: 100%;
+    padding-top: 200px;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height:93vh;
+    color:black;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  .goback {
+      margin-top: 15px;
+      text-decoration: none;
+      color: black;
+      transition: all .15s ease-in-out;
+  }
+
+  .goback:hover {
+      color: gray;
+  }
+
+  .logintext {
+      margin-top: 175px;
+  }
+
+  .logcolor {
+      background-color: #C6C6C6;
+      width: 30%;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 5px;
+  }
+
+  .linediv {
+      border-right:solid black 1px;
+
+  }

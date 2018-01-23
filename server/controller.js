@@ -70,7 +70,7 @@ module.exports = {
         .catch(() => res.status(500).send())
     },
 
-    deletePost(req,res){
+    deletePost(req,res) {
         const { params } = req
         const db = req.app.get('db')
 
@@ -78,5 +78,38 @@ module.exports = {
             res.status(200).send(create_post)
         })
         .catch(() => res.status(500).send())
+    },
+ 
+    updatePost(req, res) {
+        const { params, body } = req
+        const db = req.app.get('db')
+        
+        db.update_post([params.id, body.newtitle, body.newcontent]).then((create_post) => {
+            res.status(200).send(create_post)
+        }).catch(() => res.status(500).send())
+    },
+
+    getJoin(req, res) {
+        const db = req.app.get('db')
+        
+        db.join_id().then((create_post) => {
+            res.send(create_post)
+        })
+        .then(() => res.status(200).send())
+        .catch(() => res.status(500).send())
+
+    },
+
+    logout(req, res) {
+        req.session.destroy()
+    },
+
+    getInfo(req,res) {
+        const db = req.app.get('db')
+        const { id } = req.body
+        db.find_info(id).then((create_post) => {
+            res.send(create_post)
+        })
+        .then(() => res.status(200).send())  
     }
-}
+    }

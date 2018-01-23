@@ -15,7 +15,6 @@ class Home extends Component {
         }
         this.onPhoneChange = this.onPhoneChange.bind(this)
         this.submit = this.submit.bind(this)
-        // this.submit2 = this.submit2.bind(this)
         this.send = this.send.bind(this)
         console.log(this.state)
     }
@@ -33,19 +32,6 @@ class Home extends Component {
         })
     // })
     }
-
-    // submit2(event) {
-    //     if(event.key === 'Enter') {   
-    //         axios.post('http://localhost:3001/phone_database', {
-    //             number: this.state.phoneRawValue
-    //         }).then(res => {
-    //             alert('Thanks for subscribing')
-    //             console.log(res)
-    //         }).catch((error) => {
-    //             console.log(error)
-    //         })
-    //     }
-    // }
 
     onClick(event){
         window.scroll({top:0,left:0,behavior:'smooth'})
