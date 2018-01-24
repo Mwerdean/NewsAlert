@@ -33,7 +33,10 @@ app.delete('/deletepost/:id' , controller.deletePost)
 app.put('/updatepost/:id' , controller.updatePost)
 app.get('/getjoin' , controller.getJoin)
 app.put('/logout' , controller.logout)
-app.get('getforuminfo/:id', controller.getInfo)
+app.get('/getforuminfo/:id', controller.getInfo)
+app.post('/reply', controller.reply)
+app.get('/getreplies' , controller.getreplies)
+app.delete('/deletereply/:id', controller.deleteReply)
 
 
 

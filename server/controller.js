@@ -1,3 +1,4 @@
+
 const axios = require('axios')
 const twilio = require('twilio')
 const accountSid = process.env.ACCOUNT_SID
@@ -111,5 +112,33 @@ module.exports = {
             res.send(create_post)
         })
         .then(() => res.status(200).send())  
+    },
+
+    reply(req,res) {
+        const { params, body } = req
+        const db = req.app.get('db') 
+
+        db.create_reply([body.auth0_id, body.postid, body.newreply]).then((create_reply) => {
+            res.send(create_reply)
+        })
+    },
+
+    getreplies(req,res) {
+        const { params, body } = req
+        const db = req.app.get('db') 
+        
+        db.find_reply().then((create_reply) => {
+            res.send(create_reply)
+        })
+    },
+
+    deleteReply(req,res) {
+        const { params } = req
+        const db = req.app.get('db')
+
+        db.delete_reply([params.id]).then ((create_post) => {
+            res.status(200).send(create_post)
+        })
+        .catch(() => res.status(500).send())
     }
     }

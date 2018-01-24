@@ -9,6 +9,7 @@ import axios from 'axios'
 import Modal from 'react-modal'
 import '../App.css'
 import _ from 'underscore'
+require('dotenv').config()
 
     // const colors = [
     //     '#000000',
@@ -50,19 +51,29 @@ import _ from 'underscore'
             this.state = {
                 forumInfo: [],
                 modalIsOpen: false,
+                modalIsOpen2: false,
                 updateTitle: {},
                 updateContent: {},
+                updateResponse: {},
                 tempId:'',
+                replies:[],
             }
             this.deletePost = this.deletePost.bind(this)
             this.openModal = this.openModal.bind(this)
             this.afterOpenModal = this.afterOpenModal.bind(this)
             this.closeModal = this.closeModal.bind(this)
+            this.closeModal2 = this.closeModal2.bind(this)
             this.handleUpdateContent = this.handleUpdateContent.bind(this)
             this.handleUpdateTitle = this.handleUpdateTitle.bind(this)
+            this.replies = this.replies.bind(this)
             this.userIdCheck = this.userIdCheck.bind(this)
-            this.fillInput = this.fillInput.bind(this)
             this.edit = this.edit.bind(this)
+            this.handleCreateResponse = this.handleCreateResponse.bind(this)
+            this.cancelModal = this.cancelModal.bind(this)
+            this.createReply  = this.createReply.bind(this)
+            this.edit2 = this.edit2.bind(this)
+            this.deleteReply = this.deleteReply.bind(this)
+            this.userIdCheck2 = this.userIdCheck2.bind(this)
         }
 
     componentDidMount() {
@@ -77,14 +88,23 @@ import _ from 'underscore'
         //     console.log("res", this.state.forumInfo)
         // })
 
+        axios.get('/getreplies').then((res) => {
+            this.setState({ replies: res.data })
+            console.log('res' , this.state.replies)
+        })
+
         axios.get('/getjoin').then((res) => {
             this.setState({ forumInfo: res.data})
             console.log('res' , this.state.forumInfo)
         })
+
+
+
     }
 
     componentWillMount() {
         Modal.setAppElement('body')
+        
     }
 
     deletePost(id) {
@@ -98,10 +118,26 @@ import _ from 'underscore'
         })
     }
 
+    deleteReply(id) {
+        axios.delete(`/deletereply/${id}`).then((res) => {
+            console.log('responso', res.data)
+        }).then(() => {
+            axios.get('/getreplies').then((res) => {
+                this.setState({ replies: res.data })
+                console.log('res' , this.state.replies)
+            })
+        })
+    }
+
     openModal(id) {
         this.setState({modalIsOpen:true})
         this.setState({ tempId: id })
         console.log(this.state.tempId)
+    }
+
+    createReply(id){
+        this.setState({ modalIsOpen2: true })
+        this.setState({ tempId: id })
     }
 
     afterOpenModal() {
@@ -125,6 +161,25 @@ import _ from 'underscore'
         })
                     
     }
+
+    cancelModal() {
+        this.setState({ modalIsOpen: false })
+    }
+
+    closeModal2() {
+        this.setState({ modalIsOpen2: false })
+        let myobj2 = {
+            auth0_id: this.props.user.auth0_id,
+            newreply: this.state.updateResponse,
+            postid: this.state.tempId
+        }
+        axios.post('/reply' , myobj2).then(() => {
+            axios.get('/getreplies').then((res) => {
+                this.setState({ replies: res.data })
+                console.log('res' , this.state.replies)
+            })
+        })
+    }
     
     handleUpdateTitle(value) {
         this.setState({ updateTitle: value })
@@ -134,14 +189,27 @@ import _ from 'underscore'
         this.setState({ updateContent: value })
     }
 
+    handleCreateResponse(value) {
+        this.setState({ updateResponse: value })
+    }
+
+
     edit(id, auth0, eid) {
-        if(auth0 === id){
+        if(auth0 === id || auth0 === process.env.UNIQUE_ID){
             return(
                 <div className="actionbuttons">
                 <a onClick = { () => this.openModal(eid) } className="rightbuttons"> Edit </a>
                 <div> | | </div>
                 <a className="rightbuttons" onClick={ () => this.deletePost(eid) }> Delete </a>
             </div>
+            )
+        }
+    }
+
+    edit2(id, auth0, eid) {
+        if(auth0 === id || auth0 === process.env.UNIQUE_ID) {
+            return(
+                <a className="rightbuttons" onClick={ () => this.deleteReply(eid) }> Delete </a>
             )
         }
     }
@@ -156,6 +224,16 @@ import _ from 'underscore'
         )
     }
 
+    userIdCheck2(id){
+        if(id.length > 20){
+            return(
+                id.substring(0,20) + "..."
+            )
+        } else return(
+            id
+        )
+    }
+
     logout(){
         axios.put('/logout').then((res) => {
             this.props.user = null
@@ -164,23 +242,39 @@ import _ from 'underscore'
         })
     }
 
-    fillInput() {
-        this.state.forumInfo.map((element, index) => {
-             return (
-               <div>{element.title}</div> 
-             )
-         })
+
+    replies(id){
+        const { user } = this.props
+        return (this.state.replies.map((element, index) => {
+            console.log(typeof element.postid, typeof id)
+            if(element.postid === id) {
+                return(
+                    <div className="replybox">
+                    <div className="flex seperate">
+                    <div className="replyname">User ID: {element.auth0_id}</div>
+                    {user &&
+                         this.edit2(element.auth0_id, user.auth0_id, element.id)
+                    }
+                    </div>
+                    <div>{element.reply_id}</div>
+                    <div>{element.content}</div>
+                    </div>
+                )
+            }
+        })) 
     }
+
+
 
   render() {
     const { user } = this.props 
     let displayForum = _.sortBy(this.state.forumInfo , 'id').map((element, index) => {
         return (
+            <div>
             <div key={index} className="contentforumpost">
                 <div className="postleftcontent">
                     <div className="useridborder">User ID:
-                        <div>{this.userIdCheck(element.auth0_id)}
-                        </div>
+                        <div>{this.userIdCheck(element.auth0_id)}</div>
                     </div>
                     <div>
                         <Upvoter />
@@ -194,8 +288,15 @@ import _ from 'underscore'
                             this.edit(element.auth0_id, user.auth0_id, element.id)
                         }
                     </div>
+                    <div className="flex seperate">
                     <div>{element.content}</div>
+                    {user &&
+                        <button onClick={() => this.createReply(element.id)} className="replybutton">Reply</button>
+                    }
+                    </div>
                 </div>
+            </div>
+            <div> {this.replies(element.id)} </div>
             </div>
         )
     })
@@ -240,6 +341,18 @@ import _ from 'underscore'
                         <input className="ina" placeholder="Type your new content here"onChange={ event => this.handleUpdateContent(event.target.value) }/>
                         <button onClick={this.closeModal} className="createbutton">Submit</button>
                     </Modal>
+                    <Modal 
+                        isOpen = { this.state.modalIsOpen2 }
+                        onAfterOpen = { this.afterOpenModal }
+                        onRequestClose = { this.closeModal2 }
+                        style = { customStyles }
+                        contentLabel = "Create Response"
+                    >
+                        <h2 ref={subtitle => this.subtitle = subtitle}>Create Response</h2>
+                        <div>Edit Response:</div>
+                        <input className="ina" placeholder="Type your response" onChange={ event => this.handleCreateResponse(event.target.value) }/>
+                        <button onClick={this.closeModal2} className="createbutton">Submit</button>
+                    </Modal>
                     <div className="contentmain">
                     <div className="title">Forum</div>
                         <div className="forum1">
@@ -258,7 +371,7 @@ import _ from 'underscore'
                                 <div> You are logged in as: </div>
                                     <div><strong>{user.name}</strong></div>
                                     <div><strong>{user.email}</strong></div>
-                                    <div><strong>{user.auth0_id}</strong></div>
+                                    <div><strong>{this.userIdCheck2(user.auth0_id)}</strong></div>
                                 </div>
                             </div>}
                       {!user && <p className="butyoumust">You must log in! <Link to="/signin">Log In</Link></p>}
