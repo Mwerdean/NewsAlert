@@ -1,0 +1,41 @@
+.aboutBg {
+    background-image: url("https://i.ytimg.com/vi/44mBU7WDA24/maxresdefault.jpg");
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height:93vh;
+    color:black;
+    letter-spacing: 2px;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.aboutTitle {
+    font-family: "Lobster";
+    font-size: 50px;
+    text-align: center;
+}
+
+.aboutContent {
+    text-align: center;
+    font-family: "Lato";
+    margin-left: 150px;
+    margin-right: 150px;
+    background-color: #c6c6c6;
+    padding: 20px;
+}
+
+.line {
+    border-bottom: solid .5px black;
+    margin-bottom: 20px;
+}
+
+.SocialIcon {
+    margin: 10px;
+}
+
+.SocialIcon:hover {
+    height: 75px;
+    width:75;
+}

@@ -6,7 +6,10 @@
   font-family: 'Lato', sans-serif;
   font-size: 60px;
   font-weight: bolder;
-  width:80%;
+  width:100%;
+  background-color: rgba(43, 38, 38, 0.486);
+  border-radius: 5px 5px 0px 0px;
+  color: white;
 }
 
 .flex{
@@ -14,7 +17,7 @@
 }
 
 .forumbackground {
-  background-image: url("https://i.imgur.com/twXSJT5.jpg?1");
+  background-color: #C6C6C6;
   width: 100%;
   padding-top: 150px;
   background-position: center center;
@@ -65,14 +68,14 @@ box1{
 
 .spacing2 {
   text-align: center;
-  margin:0 auto;
-  width: 100%;
+  padding-bottom: 10px;
 }
 
 .infopicture2 {
-  height: 120px;
-  width:90%;
+  height: 130px;
+  width: 130px;
   margin: 5px;
+  border: 4px #ee4444 solid;
 }
 
 .butyoumust {
@@ -80,13 +83,14 @@ box1{
   padding:20px;
 }
 
+
 .content2 {
  background-color: #c6c6c6;
 }
 
 .createbutton {
-  background-color: #C6C6C6;
-  border-color: #C6C6C6;
+  background-color: white;
+  border-color: white;
   font-size:18px;
   padding:5px;
   font-family: 'Lato';
@@ -100,6 +104,7 @@ box1{
   letter-spacing: 1px;
   cursor: pointer;
   margin: 0 auto;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
 .createbutton:hover {
@@ -112,29 +117,29 @@ box1{
 }
 
 .contentforumpost {
-  width:90%;
   padding: 10px;
-  background-color: #C6C6C6;
   font-family: "Lato";
   border-radius: 5px 5px 5px 0px;
   display: flex;
   transition: all .15s ease-in-out;
   font-family: "Lato";
   margin-bottom: 5px;
+  background-image: linear-gradient(128deg, rgba(64, 61, 57, 0.1), rgba(255, 255, 255, 0.2));
+  box-shadow:0 14px 28px 0 rgba(0,0,0, 0.25), 0 10px 10px 0 rgba(0,0,0,0.26);
 }
 
 .postleftcontent {
   border-right: solid black 1px;
   margin-right:5px;
-  padding-right: 5px;
+  padding-right: 15px;
   flex:1.5;
 }
 
 .useridborder {
   border-bottom: solid black 1px;
   width:150px;
-  margin-bottom: 5px;
   font-family: "Lato";
+  margin-bottom: 10px;
 }
 
 .postrightcontent {
@@ -209,17 +214,26 @@ box1{
   width:10%;
 }
 
+.emptyleft2 {
+  width: 5%;
+}
+
 
 .emptyright {
   width:30%;
 }
 
 .test5 {
-  background-color: #C6C6C6;
+  background-color: white;
   padding: 10px;
   border-radius: 5px;
   max-width: 220px;
+  min-width: 180px;
   margin: 0 auto;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+.test4 {
+  margin:5px;
 }
 
 .test4 > div{
@@ -250,6 +264,8 @@ box1{
   margin-bottom:5px;
   border-radius: 0px 0px 5px 5px;
   padding: 5px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+
 }
 
 .replyname {
@@ -270,4 +286,32 @@ border: none;
 
 .seperate {
   justify-content: space-between;
+}
+
+.EnterTransition-enter {
+  opacity: 0;
+  transform:translateX(-20)
+}
+
+.EnterTransition-enter.EnterTransition-enter-active {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 0.5s ease-out;
+}
+
+.EnterTransition-leave {
+  opacity: 1;
+  transform: translateX(0px)
+}
+
+.EnterTransition-leave.EnterTransition-leave-active {
+  opacity:0.01;
+  transform: translateX(-20px);
+  transition: all 0.5s ease-in;
+}
+
+.forum1 {
+  background-color:white;
+  padding: 10px;
+  border-radius: 5px 0 0 0;
 }

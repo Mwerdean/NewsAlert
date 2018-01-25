@@ -15,7 +15,6 @@ class Home extends Component {
         }
         this.onPhoneChange = this.onPhoneChange.bind(this)
         this.submit = this.submit.bind(this)
-        this.send = this.send.bind(this)
         console.log(this.state)
     }
 
@@ -41,11 +40,6 @@ class Home extends Component {
         this.setState({ phoneRawValue: event.target.rawValue });
     }
 
-    send(){
-        axios.post('http://localhost:3000/twilio').catch((error) => {
-            console.log(error)
-        })
-    }
 
 
 
@@ -69,8 +63,7 @@ class Home extends Component {
                 </div>
                 <Cleave className="subinput" options={{phone: true, phoneRegionCode: 'US'}}
                         onChange={this.onPhoneChange} onKeyPress={this.submit2} placeholder="Phone Number"/>
-                <p>phone: {this.state.phoneRawValue}</p>
-                <div className="a1"><button className="submitbtn" onClick={this.submit}>Submit</button><button onClick={this.send}>send</button></div>
+                <div className="a1"><button className="submitbtn" onClick={this.submit}>Submit</button></div>
                 <div className="vertempty" />
                 <div className="wrapper">
                     <button className="linktest2" onClick={() => window.scroll({top:1000,left:0,behavior:'smooth'})}>

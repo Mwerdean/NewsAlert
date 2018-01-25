@@ -1,0 +1,12 @@
+.adminBg {
+    background-image: url("https://i.imgur.com/uFH5Vke.jpg");
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height:93vh;
+    color:black;
+    letter-spacing: 2px;
+    text-align: center;
+    padding-top: 150px;
+}

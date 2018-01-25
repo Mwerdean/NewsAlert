@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import {StaggeredMotion, spring} from 'react-motion'
+import { CSSTransitionGroup } from 'react-transition-group'
 import { connect } from 'react-redux'
 import { login } from '../ducks/reducer'
 import {Link} from 'react-router-dom'
@@ -77,11 +78,11 @@ require('dotenv').config()
         }
 
     componentDidMount() {
-        axios.get('/user-data').then(response => {
-            if (response.data.user){
-                this.props.login(response.data.user)
-            }
-        })
+        // axios.get('/user-data').then(response => {
+        //     if (response.data.user){
+        //         this.props.login(response.data.user)
+        //     }
+        // })
         
         // axios.get('/getforum').then((res)=> {
         //     this.setState({ forumInfo: res.data })
@@ -168,12 +169,12 @@ require('dotenv').config()
 
     closeModal2() {
         this.setState({ modalIsOpen2: false })
-        let myobj2 = {
+        let myObj2 = {
             auth0_id: this.props.user.auth0_id,
             newreply: this.state.updateResponse,
             postid: this.state.tempId
         }
-        axios.post('/reply' , myobj2).then(() => {
+        axios.post('/reply' , myObj2).then(() => {
             axios.get('/getreplies').then((res) => {
                 this.setState({ replies: res.data })
                 console.log('res' , this.state.replies)
@@ -261,7 +262,7 @@ require('dotenv').config()
                     </div>
                 )
             }
-        })) 
+        }))
     }
 
 
@@ -296,7 +297,15 @@ require('dotenv').config()
                     </div>
                 </div>
             </div>
-            <div> {this.replies(element.id)} </div>
+            <CSSTransitionGroup
+                transitionName="EnterTransition"
+                transitionAppear={ false }
+                transitionEnter={ true }
+                transitionEnterTimeout={ 500 }
+                transitionLeave={ true }
+                transitionLeaveTimeout={ 500 }>
+                {this.replies(element.id)}
+            </CSSTransitionGroup>
             </div>
         )
     })
@@ -322,7 +331,11 @@ require('dotenv').config()
     //     <Box bgColor={colors[2]} width={styles[2].width} className="box3"/>
     //     <Box bgColor={colors[3]} width={styles[3].width} className="box4"/>
         <div className="forumbackground">
-
+            <div className="flex">
+                <div className="emptyleft"></div>
+                <div className="title">Internet Report Forum</div>
+                <div className="emptyleft2"></div>
+            </div>
             <div className="flex">
                 <div className="emptyleft"></div>
                 <div className="middlebox">
@@ -354,9 +367,16 @@ require('dotenv').config()
                         <button onClick={this.closeModal2} className="createbutton">Submit</button>
                     </Modal>
                     <div className="contentmain">
-                    <div className="title">Forum</div>
                         <div className="forum1">
+                        <CSSTransitionGroup
+                transitionName="EnterTransition"
+                transitionAppear={ false }
+                transitionEnter={ true }
+                transitionEnterTimeout={ 500 }
+                transitionLeave={ true }
+                transitionLeaveTimeout={ 500 }>
                         {displayForum}
+                        </CSSTransitionGroup>
                         </div>
                     </div>
                 </div>

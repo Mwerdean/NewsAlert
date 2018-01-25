@@ -28,28 +28,31 @@ module.exports = {
     },
 
     
-    send(){
+    send(req,res){
+        const db = req.app.get('db')
+        const { numbers } = req.body
+        numbers2.push(numbers.number)
+        console.log(numbers)
         (numbers2.forEach(function(value, index){console.log(value)
             setTimeout(function(){
                 client.messages.create({
-                    body:'test message',
+                    body: "Why hello my dudes",
                     to: value,
                     from:'4802646545'
                 })
             }, index * 5000)
         })
-    )},
+    )
+
+},
 
 
     get(req,res){
         const db = req.app.get('db')
         const {number} = req.body
-        const number5=[]
-        db.find_phone(number).then((res) => {
-            number5.push(number)
-        }).then(() => {
-        res.send(number5)
-    })
+        db.find_phone().then((find_database) => {
+            console.log(find_database)
+        })
     },
 
     createPost(req, res) {

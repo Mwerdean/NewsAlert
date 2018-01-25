@@ -72,12 +72,8 @@ body {
   transition: all .15s ease-in-out;
   
 }
-.logo2 > div {
-  opacity: 1;
-
-}
-.logo > div {
-
+.logo {
+  
   margin-top:10px;
   margin-left:20px;
   font-size: 28px;
@@ -86,6 +82,10 @@ body {
   letter-spacing: 1px;
 }
 
+.logo2 {
+  opacity: 1;
+  font-size: 28px;
+}
 
 button:focus {outline:0}
 
@@ -253,7 +253,7 @@ input.subinput:focus {
 .navright {
   display:flex;
   width: 30%;
-  margin-right: 50px;
+  margin-right: 100px;
   transition: all .3s ease-in-out;
   padding-top: 20px;
 }
@@ -278,6 +278,7 @@ input.subinput:focus {
   transition: all .15s ease-in-out;
   letter-spacing: 2px;
   margin-top: 30px;
+  cursor: pointer;
 }
 
 .submitbtn:hover {
@@ -287,5 +288,71 @@ input.subinput:focus {
 .a1 {
  width: 100%;
  text-align: center;
+}
+
+nav ul li {
+  list-style-type: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color:#f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+
+.has-children{
+  display: none;
+  position: absolute;
+  width:6%;
+  background: #c6c6c64b;
+  transition: all .3s ease-out;
+}
+
+.has-children > li {
+  margin: 5px 0px 10px 0px;;
+  text-align: center;
+  width:100%;
+}
+
+nav ul li:hover ul {
+  display:flex;
+  flex-direction: column;
+}
+
+.listhover:hover {
+  width:100%;
+  color:black;
+}
+
+/* @media only screen and (max-width:480px){
+  .has-children ul li a {
+    
+  }
+} */
+
+.backtotop2{
+  margin-top:10px;
+  text-decoration: none;
+  font-size:15px;
+  font-family: 'Lato', sans-serif;
+  background: none;
+  border:none;
+  margin-bottom:5px;
+  margin-right: 8px;
+  cursor: pointer;
+  color:white;
+  transition: all .3s ease-out;
+  letter-spacing: 1px;
+}
+
+.dontShow {
+  display:none;
 }
 
