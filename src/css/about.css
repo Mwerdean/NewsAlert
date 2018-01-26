@@ -9,6 +9,7 @@
     letter-spacing: 2px;
     text-align: center;
     padding-top: 150px;
+    display: flex;
 }
 
 .aboutTitle {
@@ -20,15 +21,16 @@
 .aboutContent {
     text-align: center;
     font-family: "Lato";
-    margin-left: 150px;
-    margin-right: 150px;
     background-color: #c6c6c6;
     padding: 20px;
+    height:40%;
+    display: flex;
 }
 
 .line {
     border-bottom: solid .5px black;
     margin-bottom: 20px;
+    padding: 20px;
 }
 
 .SocialIcon {
@@ -38,4 +40,8 @@
 .SocialIcon:hover {
     height: 75px;
     width:75;
+}
+
+.emptyA {
+    width: 30%;
 }

@@ -5,6 +5,11 @@ import Cleave from 'cleave.js/react'
 import axios from 'axios'
 // eslint-disable-next-line
 import CleavePhone from 'cleave.js/dist/addons/cleave-phone.us'
+import MdCloudCircle from 'react-icons/lib/md/cloud-circle'
+import MdAccountCircle from 'react-icons/lib/md/account-circle'
+import MdCheckCircle from 'react-icons/lib/md/check-circle'
+
+
 
 class Home extends Component {
     constructor() {
@@ -79,11 +84,40 @@ class Home extends Component {
                 </Link>
             </div>
         </div>
+        <div className="infopage">
+            <div className="centertext">
+                <div className="centerlarge">SERVICES</div>
+                <div className="centersmall">We provide community driven info straight to your phone</div>
+            </div>
+            <div className="pointCont">
+                <div>
+                    <div className="md"><MdCloudCircle /></div>
+                    <div className="infot">Let the people choose</div>
+                    <div className="infos">The messages that get sent out are submitted by the users themselves in our forum. That way ony the most popular ideas get sent to you.</div>
+                </div>
+                <div>
+                    <div className="md"><MdAccountCircle /></div>
+                    <div className="infot">Easy to get started</div>
+                    <div className="infos">If you have a Facebook, Google account, or even Github account, you can sign up quickly via the Auth0 platform.</div>
+                </div>
+                <div>
+                    <div className="md"><MdCheckCircle /></div>
+                    <div className="infot">Responsive Design</div>
+                    <div className="infos">On the run? This website is mobile friendly!</div>
+                </div>
+
+            </div>
+          
+
+        </div>
 
 
         <div id="thewhypage1"className="thewhypage">
             <div className="empty"/>
             <div className="video">
+            <div className="centertext">
+                <div className="centerlarge">What else?</div>
+            </div>
                 <iframe width="700" height="415" src="https://www.youtube.com/embed/MHg_M_zKA6Y?start=55" frameBorder="0" gesture="media" title='business stuff' allow="encrypted-media" allowFullScreen></iframe> 
             </div>
             <div className="empty"/>

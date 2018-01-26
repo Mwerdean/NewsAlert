@@ -75,7 +75,7 @@ box1{
   height: 130px;
   width: 130px;
   margin: 5px;
-  border: 4px #ee4444 solid;
+  /* border: 4px #ee4444 solid; */
 }
 
 .butyoumust {

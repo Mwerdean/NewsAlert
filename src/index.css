@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Lobster');
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900');
 
 
 
@@ -34,7 +34,7 @@ body {
 }
 
 .navbar2 {
- background-color:  #262626;
+ background-color:  #212529
  
 }
 
@@ -176,7 +176,7 @@ input.subinput:focus {
 }
 
 .vertempty {
-  height:20vh;
+  height:25%;
   width:100%;
   position:relative;
 }
@@ -200,7 +200,7 @@ input.subinput:focus {
 
 
 .thewhypage{
-  background-image: url("https://i.imgur.com/EPFm3WK.jpg");
+ background-color: #f8f9fa;
   width: 100%;
   padding-top: 150px;
   height: 950px;
@@ -356,3 +356,63 @@ nav ul li:hover ul {
   display:none;
 }
 
+
+.infopage {
+  height: 80vh;
+  width:100%;
+  padding-top: 150px;
+}
+
+.centertext {
+  text-align: center;
+  font-family: "Lato";
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.centerlarge {
+  font-size: 45px;
+  font-weight: bold;
+  color: #212529;
+  margin-bottom: 10px;
+}
+
+.centersmall {
+  font-style: italic;
+  color:#6c757d;
+  font-size: 20px;
+}
+
+.pointCont {
+  display: flex;
+  margin-right: 45px;
+  margin-left: 45px;
+ 
+}
+
+.md {
+  font-size: 100px;
+  color:#ee4444;
+}
+
+.pointCont > div{
+  flex: 1;
+  text-align: center;
+  margin-right: 20px;
+  margin-left: 20px;
+
+}
+
+.pointCont > div > div {
+  margin-bottom: 10px;
+}
+.infos {
+  color:#6c757d;
+  font-size: 20px;
+}
+
+.infot {
+  font-size: 25px;
+  font-weight: bold;
+  color: #212529;
+}

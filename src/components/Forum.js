@@ -1,39 +1,14 @@
 import React, { Component } from 'react'
-// import {StaggeredMotion, spring} from 'react-motion'
 import { CSSTransitionGroup } from 'react-transition-group'
 import { connect } from 'react-redux'
 import { login } from '../ducks/reducer'
 import {Link} from 'react-router-dom'
 import Upvoter from './Upvoter'
-// import styled from 'styled-components'
 import axios from 'axios'
 import Modal from 'react-modal'
 import '../App.css'
 import _ from 'underscore'
 require('dotenv').config()
-
-    // const colors = [
-    //     '#000000',
-    //     '#1a1a1a',
-    //     '#333333',
-    //     '#4d4d4d',
-    //     '#ffa366',
-    // ]
-
-    // const Wrapper = styled.div`
-    // display:flex;
-    // width:100vw;
-    // min-height:100vh;
-    // `;
-
-    // const Box = styled.div`
-    // flex-basis:${(props) => props.width}%;
-    // background-color:${(props) => props.bgColor};
-    // `;
-
-    // const ContentWrapper = styled.div`
-    // flex-basis:100%;    
-    // `;
 
     const customStyles = {
         content : {
@@ -310,30 +285,10 @@ require('dotenv').config()
         )
     })
     return (
-    // <StaggeredMotion
-    //     defaultStyles={[
-    //         { width:100 },
-    //         { width:100 },
-    //         { width:100 },
-    //         { width:100 },
-    //     ]}
-    //     styles={(prevStyles) => [
-    //         { width:spring(0) },
-    //         { width:spring(prevStyles[0].width) },
-    //         { width:spring(prevStyles[1].width) },
-    //         { width:spring(prevStyles[2].width) },
-    //     ]}
-    //     >
-    // {(styles) => (
-    //   <Wrapper>
-    //     <Box bgColor={colors[0]} width={styles[0].width} className="box1"/>
-    //     <Box bgColor={colors[1]} width={styles[1].width} className="box2"/>
-    //     <Box bgColor={colors[2]} width={styles[2].width} className="box3"/>
-    //     <Box bgColor={colors[3]} width={styles[3].width} className="box4"/>
         <div className="forumbackground">
             <div className="flex">
                 <div className="emptyleft"></div>
-                <div className="title">Internet Report Forum</div>
+                <div className="title">News Alert Forum</div>
                 <div className="emptyleft2"></div>
             </div>
             <div className="flex">
@@ -368,15 +323,15 @@ require('dotenv').config()
                     </Modal>
                     <div className="contentmain">
                         <div className="forum1">
-                        <CSSTransitionGroup
-                transitionName="EnterTransition"
-                transitionAppear={ false }
-                transitionEnter={ true }
-                transitionEnterTimeout={ 500 }
-                transitionLeave={ true }
-                transitionLeaveTimeout={ 500 }>
-                        {displayForum}
-                        </CSSTransitionGroup>
+                            <CSSTransitionGroup
+                                transitionName="EnterTransition"
+                                transitionAppear={ false }
+                                transitionEnter={ true }
+                                transitionEnterTimeout={ 500 }
+                                transitionLeave={ true }
+                                transitionLeaveTimeout={ 500 }>
+                                {displayForum}
+                            </CSSTransitionGroup>
                         </div>
                     </div>
                 </div>
@@ -414,9 +369,7 @@ require('dotenv').config()
                 </div> 
             </div>
         </div>
-    //   </Wrapper>
-    // )}
-    // </StaggeredMotion>
+
     );
   }
 }

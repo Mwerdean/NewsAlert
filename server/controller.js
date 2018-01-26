@@ -7,8 +7,8 @@ const authToken = process.env.TWILLIO_TOKEN
 const client = new twilio(accountSid, authToken)
 
 const numbers=['4807847908','2064469482']
-
 const numbers2=[]
+
 module.exports = {
 
 
@@ -30,13 +30,13 @@ module.exports = {
     
     send(req,res){
         const db = req.app.get('db')
-        const { numbers } = req.body
-        numbers2.push(numbers.number)
-        console.log(numbers)
+        const { body } = req
+        numbers2.push(body.numbers)
+        const message = body.message
         (numbers2.forEach(function(value, index){console.log(value)
             setTimeout(function(){
                 client.messages.create({
-                    body: "Why hello my dudes",
+                    body: message,
                     to: value,
                     from:'4802646545'
                 })
@@ -49,9 +49,9 @@ module.exports = {
 
     get(req,res){
         const db = req.app.get('db')
-        const {number} = req.body
-        db.find_phone().then((find_database) => {
-            console.log(find_database)
+        db.find_phone().then((phone_database) => {
+            res.send(phone_database)
+            console.log(phone_database)
         })
     },
 

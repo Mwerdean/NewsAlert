@@ -8,23 +8,35 @@ class Admin extends Component {
         super()
         this.state = {
             messageInput:"",
-            numbers:{},
+            numbers:[],
+            numbers2:[]
         }
         this.CheckId = this.CheckId.bind(this)
         this.ChangeMessageInput = this.ChangeMessageInput.bind(this)
         this.send = this.send.bind(this)
+        this.grab = this.grab.bind(this)
     }
 
-    send(){
-        // let myObj3 = {
-        //     Input: this.state.messageInput
-        // }
-        // axios.post('/twilio').catch((error) => {
-        //     console.log(error)
-        // })
+    grab(){
         axios.get('/get').then((res) => {
             this.setState({ numbers:res.data })
             console.log(this.state.numbers)
+            console.log(this.state.numbers.number)
+        }).then(() => {
+        this.state.numbers.map((element,index) => {
+            this.state.numbers2.push(element.number)
+            console.log("heres what you want" , this.state.numbers2)
+        })
+    })
+    }
+
+    send() {
+        let myObj3 = {
+            numbers: this.state.numbers2,
+            message: this.state.messageInput
+        }
+        axios.post('/twilio' , myObj3).catch((error) => {
+            console.log(error)
         })
     }
 
@@ -38,7 +50,9 @@ class Admin extends Component {
                 <div>
                     <div>Send Messages</div>
                     <input className="ina" onChange={ event => this.ChangeMessageInput(event.target.value) } />
-                    <button className="createbutton" onClick={this.send}>send</button>
+                    <button className="createbutton" onClick={this.grab}>Grab Numbers</button><br />
+                    <button className="createbutton" onClick={this.send}>Send</button>
+                    <div>{this.state.numbers2}</div>
                 </div>
             )
         }
