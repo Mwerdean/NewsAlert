@@ -8,6 +8,7 @@ const controller = require('./controller')
 const session = require ('express-session')
 const app = express()
 
+app.use( express.static( `${__dirname}/../build` ));
 app.use(bodyParser.json())
 app.use(cors())
 app.use(session({
@@ -77,7 +78,10 @@ app.post('/login', (req, res) => {
    })
    
    
-
+   const path = require('path')
+   app.get('*', (req, res)=>{
+     res.sendFile(path.join(__dirname, '../build/index.html'));
+   })
 
 
 
