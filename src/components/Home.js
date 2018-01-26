@@ -48,9 +48,7 @@ class Home extends Component {
     }
 
     submit() {
-        // axios.get('http://localhost:3001/get').then((res) => {
-        //  console.log('res:', res.data)
-        axios.post('http://localhost:3000/phone_database', {
+        axios.post('/phone_database', {
             number: this.state.phoneRawValue
         }).then(res => {
                 alert('Thanks for subscribing') 
@@ -58,7 +56,6 @@ class Home extends Component {
         }).catch((error) => {
             console.log(error)
         })
-    // })
     }
 
     onClick(event){
