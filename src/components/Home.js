@@ -8,7 +8,31 @@ import CleavePhone from 'cleave.js/dist/addons/cleave-phone.us'
 import MdCloudCircle from 'react-icons/lib/md/cloud-circle'
 import MdAccountCircle from 'react-icons/lib/md/account-circle'
 import MdCheckCircle from 'react-icons/lib/md/check-circle'
+import styled from 'styled-components'
+import {StaggeredMotion, spring} from 'react-motion'
 
+   const colors = [
+        '#000000',
+        '#1a1a1a',
+        '#333333',
+        '#4d4d4d',
+        '#ffa366',
+    ]
+
+    const Wrapper = styled.div`
+    display:flex;
+    width:100vw;
+    min-height:100vh;
+    `;
+
+    const Box = styled.div`
+    flex-basis:${(props) => props.width}%;
+    background-color:${(props) => props.bgColor};
+    `;
+
+    const ContentWrapper = styled.div`
+    flex-basis:100%;    
+    `;
 
 
 class Home extends Component {
@@ -51,6 +75,26 @@ class Home extends Component {
     
   render() {
     return (
+    <StaggeredMotion
+        defaultStyles={[
+            { width:100 },
+            { width:100 },
+            { width:100 },
+            { width:100 },
+        ]}
+        styles={(prevStyles) => [
+            { width:spring(0) },
+            { width:spring(prevStyles[0].width) },
+            { width:spring(prevStyles[1].width) },
+            { width:spring(prevStyles[2].width) },
+        ]}
+        >
+    {(styles) => (
+      <Wrapper>
+        <Box bgColor={colors[0]} width={styles[0].width} className="box1"/>
+        <Box bgColor={colors[1]} width={styles[1].width} className="box2"/>
+        <Box bgColor={colors[2]} width={styles[2].width} className="box3"/>
+        <Box bgColor={colors[3]} width={styles[3].width} className="box4"/>
 
     <div>
         <div className="subscribe">
@@ -123,6 +167,10 @@ class Home extends Component {
             <div className="empty"/>
         </div>
     </div>
+    
+      </Wrapper>
+    )}
+    </StaggeredMotion>
     );
   }
 }
