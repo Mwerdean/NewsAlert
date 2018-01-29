@@ -51,11 +51,11 @@ class Create extends Component {
                         <div className="content2">
                             <div className="createinputs">
                                 <div>Title:</div>
-                                <input onChange={ event => this.handleTitleChange(event.target.value) }></input>
+                                <textarea className="inc" onChange={ event => this.handleTitleChange(event.target.value) }></textarea>
                             </div>
                             <div className="createinputs">
                                 <div>text:</div>
-                                <input onChange={ event => this.handleTextChange(event.target.value) }></input>
+                                <textarea className="inc" onChange={ event => this.handleTextChange(event.target.value) }></textarea>
                             </div>
                             <Link to="/forum"><button onClick={ this.createPost }>submit</button></Link>
                         </div>

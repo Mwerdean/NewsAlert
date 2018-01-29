@@ -50,6 +50,7 @@ class Forum extends Component {
         this.edit2 = this.edit2.bind(this)
         this.deleteReply = this.deleteReply.bind(this)
         this.userIdCheck2 = this.userIdCheck2.bind(this)
+        this.closeModals = this.closeModals.bind(this)
     }
 
     componentDidMount() {
@@ -120,7 +121,7 @@ class Forum extends Component {
         this.subtitle.style.color = '#foo'
     }
 
-    closeModal() {
+    closeModals() {
         this.setState({ modalIsOpen: false })
         console.log(this.state.tempId, this.state.updateContent, this.state.updateTitle)
         let myobj = {
@@ -135,6 +136,9 @@ class Forum extends Component {
                 console.log("res", this.state.forumInfo)
             })
         })
+    }
+    closeModal() {
+        this.setState({ modalIsOpen: false })
 
     }
 
@@ -265,7 +269,7 @@ class Forum extends Component {
                                 }
                             </div>
                             <div className="flex seperate">
-                                <div>{element.content}</div>
+                                <div className="sizing">{element.content}</div>
                                 {user &&
                                     <button onClick={() => this.createReply(element.id)} className="replybutton">Reply</button>
                                 }
@@ -352,12 +356,12 @@ class Forum extends Component {
                             <input className="ina" placeholder="Type your new title here" onChange={event => this.handleUpdateTitle(event.target.value)} />
                             <div>Edit: Content</div>
                             <input className="ina" placeholder="Type your new content here" onChange={event => this.handleUpdateContent(event.target.value)} />
-                            <button onClick={this.closeModal} className="createbutton">Submit</button>
+                            <button onClick={this.closeModals} className="createbutton">Submit</button>
                         </Modal>
                         <Modal
                             isOpen={this.state.modalIsOpen2}
                             onAfterOpen={this.afterOpenModal}
-                            onRequestClose={this.closeModal2}
+                            onRequestClose={this.closeModal}
                             style={customStyles}
                             contentLabel="Create Response"
                         >

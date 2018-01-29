@@ -283,6 +283,15 @@ box1{
   .title {
     font-size: 40px;
   }
+
+  .postrightcontent {
+    width: 200px;
+  }
+
+  .sizing {
+    font-size: 12px;
+    width: 200px;
+  }
 }
 
 
@@ -378,4 +387,12 @@ border: none;
   background-color:white;
   padding: 10px;
   border-radius: 5px 0 0 0;
+}
+
+.inc {
+  height: 100px;
+  width: 300px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-align:top;
 }
