@@ -32,7 +32,7 @@ module.exports = {
         const db = req.app.get('db')
         const { body } = req
         numbers2.push(body.numbers)
-        const message = body.message
+        const message = [body.message]
         (numbers2.forEach(function(value, index){console.log(value)
             setTimeout(function(){
                 client.messages.create({
