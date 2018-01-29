@@ -15,6 +15,7 @@ class App extends Component {
       displayThing: null
     }
     this.displayMenu = this.displayMenu.bind(this)
+    this.menuChange = this.menuChange.bind(this)
   }
 
   componentDidMount() {
@@ -37,17 +38,20 @@ class App extends Component {
     if (this.state.displayThing === null) {
       this.setState({
         displayThing: <div className={`menuoptions  ${this.state.isMin ? 'menuoptions2' : ''}`}>
-          <div><Link to='/' className="backtotop">HOME</Link></div>
-          <div><Link to='forum' className="backtotop">FORUM</Link></div>
-          <div><Link to='/about' className="backtotop">About</Link></div>
+          <div><Link to='/' onClick={this.menuChange} className="backtotop">HOME</Link></div>
+          <div><Link to='forum' onClick={this.menuChange} className="backtotop">FORUM</Link></div>
+          <div><Link to='/about' onClick={this.menuChange} className="backtotop">About</Link></div>
         </div>
       })
     } else { this.setState({ displayThing: null }) }
   }
 
+  menuChange() {
+    this.setState({ displayThing: null })
+  }
+
   render() {
     return (
-
       <div>
         <nav className='navbar'>
           <div className={`navcont ${this.state.isMin ? 'navbar2' : ''}`}>
@@ -66,7 +70,7 @@ class App extends Component {
                   <li><Link to='about' className="backtotop2">MORE</Link>
                     <ul className="has-children">
                       <li><Link to='/about' className="listhover">About</Link></li>
-                      <li><Link to='/contact' className="listhover">Contact</Link></li>
+                      <li><Link to='/contact' className="listhover">Report</Link></li>
                       <li><Link to='/admin' className="listhover">Admin</Link></li>
                     </ul>
                   </li>

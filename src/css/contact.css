@@ -1,7 +1,27 @@
 .construction {
-    background-image: url("https://i.imgur.com/NCcZfnR.jpg");
+    background-color: #212529;
     width: 100%;
     height:93vh;
     text-align: center;
     padding-top: 150px;
+    color:white;
+}
+
+.inb {
+    height: 60px;
+    margin-right: 10px;
+    width: 400px;
+}
+
+.construction > div {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.dontShowMessage {
+    display: none;
+}
+
+.message {
+    display: block;
 }

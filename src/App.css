@@ -258,8 +258,8 @@ box1{
    display: flex;
  } 
  .infopicture2 {
-  height: 90px;
-  width: 90px;
+  height: 80px;
+  width: 80px;
   margin: 0 auto;
  }
   .infopicture {
@@ -269,6 +269,12 @@ box1{
   }
  .postleftcontent {
    padding-right: 0px;
+   text-align: left;
+   width:120px;
+   font-size: 14px;
+ }
+ .useridborder {
+   border: none;
  }
 }
 

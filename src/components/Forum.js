@@ -308,6 +308,7 @@ class Forum extends Component {
                                 </div>}
                             {!user && <p className="butyoumust">You must <Link to="/signin">Log In!</Link></p>}
                             <div>
+                                <div>Welcome to the News Alert Forum! You can post articles here and they may get chosen to be sent out to everyone!</div>
                                 <ol className="list">Rules:
                               <li>Be Nice.</li>
                                     <li>Posts which result in harassment of any individual, or other entity may be removed at the moderators' discretion.</li>
@@ -395,6 +396,7 @@ class Forum extends Component {
                                     </div>}
                                 {!user && <p className="butyoumust">You must <Link to="/signin">Log In!</Link></p>}
                                 <div>
+                                <div>Welcome to the News Alert Forum! You can post articles here and they may get chosen to be sent out to everyone!</div>
                                     <ol className="list">Rules:
                               <li>Be Nice.</li>
                                         <li>Posts which result in harassment of any individual, or other entity may be removed at the moderators' discretion.</li>

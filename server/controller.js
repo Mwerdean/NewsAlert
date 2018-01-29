@@ -143,5 +143,12 @@ module.exports = {
             res.status(200).send(create_post)
         })
         .catch(() => res.status(500).send())
+    },
+
+    sendMessage(req, res) {
+        const { body } = req
+        const db = req.app.get('db')
+
+        db.create_messages([body.message]).then(() => res.status(200).send())
     }
     }

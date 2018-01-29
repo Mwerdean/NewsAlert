@@ -9,30 +9,30 @@ import MdCloudCircle from 'react-icons/lib/md/cloud-circle'
 import MdAccountCircle from 'react-icons/lib/md/account-circle'
 import MdCheckCircle from 'react-icons/lib/md/check-circle'
 import styled from 'styled-components'
-import {StaggeredMotion, spring} from 'react-motion'
+// import {StaggeredMotion, spring} from 'react-motion'
 
-   const colors = [
-        '#000000',
-        '#1a1a1a',
-        '#333333',
-        '#4d4d4d',
-        '#ffa366',
-    ]
+//    const colors = [
+//         '#000000',
+//         '#1a1a1a',
+//         '#333333',
+//         '#4d4d4d',
+//         '#ffa366',
+//     ]
 
-    const Wrapper = styled.div`
-    display:flex;
-    width:100vw;
-    min-height:100vh;
-    `;
+//     const Wrapper = styled.div`
+//     display:flex;
+//     width:100vw;
+//     min-height:100vh;
+//     `;
 
-    const Box = styled.div`
-    flex-basis:${(props) => props.width}%;
-    background-color:${(props) => props.bgColor};
-    `;
+//     const Box = styled.div`
+//     flex-basis:${(props) => props.width}%;
+//     background-color:${(props) => props.bgColor};
+//     `;
 
-    const ContentWrapper = styled.div`
-    flex-basis:100%;    
-    `;
+//     const ContentWrapper = styled.div`
+//     flex-basis:100%;    
+//     `;
 
 
 class Home extends Component {
@@ -40,18 +40,23 @@ class Home extends Component {
         super()
         
         this.state = {
-            phoneRawValue: ''
+            phoneRawValue: '',
+            displayTy: false
         }
         this.onPhoneChange = this.onPhoneChange.bind(this)
         this.submit = this.submit.bind(this)
         console.log(this.state)
     }
 
+    componentDidMount() {
+        document.title = "News Alert"
+    }
+
     submit() {
         axios.post('/phone_database', {
             number: this.state.phoneRawValue
         }).then(res => {
-                alert('Thanks for subscribing') 
+                this.setState({displayTy: !this.state.displayTy})
             console.log(res)
         }).catch((error) => {
             console.log(error)
@@ -72,26 +77,26 @@ class Home extends Component {
     
   render() {
     return (
-    <StaggeredMotion
-        defaultStyles={[
-            { width:100 },
-            { width:100 },
-            { width:100 },
-            { width:100 },
-        ]}
-        styles={(prevStyles) => [
-            { width:spring(0) },
-            { width:spring(prevStyles[0].width) },
-            { width:spring(prevStyles[1].width) },
-            { width:spring(prevStyles[2].width) },
-        ]}
-        >
-    {(styles) => (
-      <Wrapper>
-        <Box bgColor={colors[0]} width={styles[0].width} className="box1"/>
-        <Box bgColor={colors[1]} width={styles[1].width} className="box2"/>
-        <Box bgColor={colors[2]} width={styles[2].width} className="box3"/>
-        <Box bgColor={colors[3]} width={styles[3].width} className="box4"/>
+    // <StaggeredMotion
+    //     defaultStyles={[
+    //         { width:100 },
+    //         { width:100 },
+    //         { width:100 },
+    //         { width:100 },
+    //     ]}
+    //     styles={(prevStyles) => [
+    //         { width:spring(0) },
+    //         { width:spring(prevStyles[0].width) },
+    //         { width:spring(prevStyles[1].width) },
+    //         { width:spring(prevStyles[2].width) },
+    //     ]}
+    //     >
+    // {(styles) => (
+    //   <Wrapper>
+    //     <Box bgColor={colors[0]} width={styles[0].width} className="box1"/>
+    //     <Box bgColor={colors[1]} width={styles[1].width} className="box2"/>
+    //     <Box bgColor={colors[2]} width={styles[2].width} className="box3"/>
+    //     <Box bgColor={colors[3]} width={styles[3].width} className="box4"/>
 
     <div>
         <div className="subscribe">
@@ -110,6 +115,8 @@ class Home extends Component {
                 <Cleave className="subinput" options={{phone: true, phoneRegionCode: 'US'}}
                         onChange={this.onPhoneChange} onKeyPress={this.submit2} placeholder="Phone Number"/>
                 <div className="a1"><button className="submitbtn" onClick={this.submit}>Submit</button></div>
+                <div className={`thankyou ${this.state.displayTy ? 'displayTy' : ''}`}>Thanks for Subscribing! Please head over to the forum to participate in what gets sent out next!
+                </div>
                 <div className="vertempty" />
                 <div className="wrapper">
                     <button className="linktest2" onClick={() => window.scroll({top:1000,left:0,behavior:'smooth'})}>
@@ -166,9 +173,9 @@ class Home extends Component {
         </div>
     </div>
     
-      </Wrapper>
-    )}
-    </StaggeredMotion>
+    //   </Wrapper>
+    // )}
+    // </StaggeredMotion>
     );
   }
 }

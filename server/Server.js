@@ -38,6 +38,7 @@ app.get('/getforuminfo/:id', controller.getInfo)
 app.post('/reply', controller.reply)
 app.get('/getreplies' , controller.getreplies)
 app.delete('/deletereply/:id', controller.deleteReply)
+app.post('/messages' , controller.sendMessage)
 
 
 

@@ -68,6 +68,7 @@ body {
   justify-content: space-between;
   width: 100%;
   padding: 10px;
+  transition: all .3s ease-in-out;
 }
 
 .logo {
@@ -85,6 +86,12 @@ body {
   opacity: 1;
   font-size: 28px;
   margin-top: 5px;
+}
+
+@media (max-width:991px) {
+  .logo2 {
+    margin-top: 10px;
+  }
 }
 
 button:focus {outline:0}
@@ -494,4 +501,14 @@ nav ul li:hover ul {
 
 .menuoptions > div {
   margin-top: 7px;
+}
+
+.thankyou {
+  text-align: center;
+  margin-top: 10px;
+  display:none;
+}
+
+.displayTy {
+  display: block;
 }
