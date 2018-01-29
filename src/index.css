@@ -456,9 +456,7 @@ nav ul li:hover ul {
     transition: all .15s ease-in-out;
     cursor: pointer;
     letter-spacing: 1px;
-  }
-  .rbutton:hover {
-    background-color:  #ee4444;
+    background-color: #ee4444;
   }
   .navright {
     display:none;
@@ -468,10 +466,13 @@ nav ul li:hover ul {
     margin-left: 40px;
     font-size: 22px;
   }
-.subscribe {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  .subscribe {
+  background-image: none;
+  background-color: #212529;
+  }
+
+  .infopage {
+    height: 100vh;
   }
 }
 
