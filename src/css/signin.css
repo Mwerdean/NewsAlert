@@ -70,3 +70,13 @@
       border-right:solid black 1px;
 
   }
+  @media (max-width:991px) {
+      .logcolor {
+          width: 50%;
+      }
+  }
+  @media (max-width:550px) { 
+    .logcolor{
+        width: 90%;
+    }
+}

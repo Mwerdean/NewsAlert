@@ -21,10 +21,14 @@
 .aboutContent {
     text-align: center;
     font-family: "Lato";
-    background-color: #c6c6c6;
+  
     padding: 20px;
     height:40%;
     display: flex;
+}
+
+.bgA {
+    background-color: #c6c6c6;
 }
 
 .line {
@@ -44,4 +48,12 @@
 
 .emptyA {
     width: 30%;
+}
+
+
+
+ @media (max-width: 550px) {
+    .aboutContent {
+    padding: 5px;
+    }
 }

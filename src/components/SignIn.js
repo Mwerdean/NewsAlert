@@ -36,7 +36,7 @@ class SignIn extends Component {
             <div className="logcolor">
             <h3 className="qe">Click to Sign-In</h3>
             <div className="qw">
-                <Link to="/forum" className="goback">Go Back</Link>
+                <Link to="/forum" className="goback">Go to forum</Link>
                 <div className="linediv"></div>
                 <button onClick={ this.login } className="qq">Log In</button>
                 </div>

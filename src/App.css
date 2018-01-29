@@ -223,6 +223,63 @@ box1{
   width:30%;
 }
 
+.responsiveacc {
+  display: none;
+}
+
+.test52 {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 auto;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+.buttonres {
+  margin: 10px;
+}
+
+.accinfo4 {
+  display: flex;
+}
+
+.cbc  {
+  background-color: #c6c6c6 !important;
+}
+@media (max-width:991px) {
+  /*smaller*/
+ .emptyright {
+   display: none;
+ }
+ .emptyleft {
+   display: none;
+ }
+ .responsiveacc {
+   display: flex;
+ } 
+ .infopicture2 {
+  height: 90px;
+  width: 90px;
+  margin: 0 auto;
+ }
+  .infopicture {
+    height: 90px;
+    width: 90px;
+    margin-right: 5px;
+  }
+ .postleftcontent {
+   padding-right: 0px;
+ }
+}
+
+
+@media(max-width: 550px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+
 .test5 {
   background-color: white;
   padding: 10px;

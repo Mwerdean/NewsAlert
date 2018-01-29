@@ -9,12 +9,14 @@ body {
   font-family: sans-serif;
 }
 
+@media (max-width: 950px) {
+ 
+}
+
 .navbar {
-  display:flex;
   background-color: transparent;
   position:fixed;
   width:100%;
-  padding:10px;
   transition: all .3s ease-in-out;
 }
 
@@ -34,8 +36,8 @@ body {
 }
 
 .navbar2 {
- background-color:  #212529
- 
+ background-color:  #212529;
+ padding: 8px;
 }
 
 /* .back2 {
@@ -65,15 +67,12 @@ body {
   margin:0 auto;
   justify-content: space-between;
   width: 100%;
+  padding: 10px;
 }
 
 .logo {
-
+  
   transition: all .15s ease-in-out;
-  
-}
-.logo {
-  
   margin-top:10px;
   margin-left:20px;
   font-size: 28px;
@@ -85,6 +84,7 @@ body {
 .logo2 {
   opacity: 1;
   font-size: 28px;
+  margin-top: 5px;
 }
 
 button:focus {outline:0}
@@ -157,6 +157,29 @@ button:focus {outline:0}
   transform: translateY(0px);
   transition:all 1s ease-out;
 }
+
+.fly-menu-enter {
+  opacity: 0.01;
+  transform:translateY(-40px);
+}
+
+.fly-menu-enter.fly-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.5s ease-out;
+}
+
+.fly-menu-leave {
+  opacity: 1;
+  transform: translateY(0px)
+}
+
+.fly-menu-leave.fly-menu-leave-active {
+  opacity:0.01;
+  transform: translateY(0px);
+  transition: all 0.2s ease-in;
+}
+
 .sub-box > input {
   margin:0 auto;
   display:block;
@@ -331,12 +354,6 @@ nav ul li:hover ul {
   color:black;
 }
 
-/* @media only screen and (max-width:480px){
-  .has-children ul li a {
-    
-  }
-} */
-
 .backtotop2{
   margin-top:10px;
   text-decoration: none;
@@ -361,6 +378,7 @@ nav ul li:hover ul {
   height: 80vh;
   width:100%;
   padding-top: 150px;
+  display:flex;
 }
 
 .centertext {
@@ -415,4 +433,64 @@ nav ul li:hover ul {
   font-size: 25px;
   font-weight: bold;
   color: #212529;
+}
+
+.emptyten {
+  width: 10%;
+}
+
+.rbutton {
+  display: none;
+  font-size: 20px;
+}
+
+@media (max-width:991px) {
+  /*smaller*/
+  .rbutton{
+    display:flex;
+    margin-right: 50px;
+    height: 35px;
+    border:none;
+    border-radius: 10px;
+    margin-top: 6px;
+    transition: all .15s ease-in-out;
+    cursor: pointer;
+    letter-spacing: 1px;
+  }
+  .rbutton:hover {
+    background-color:  #ee4444;
+  }
+  .navright {
+    display:none;
+  }
+
+  .logo {
+    margin-left: 40px;
+    font-size: 22px;
+  }
+.subscribe {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  }
+}
+
+
+.menuoptions {
+  color: white;
+  transition: all .15s ease-in-out;
+  text-align: center;
+  background-color: transparent;
+  display:flex;
+  flex-direction: column;
+  animation-name: slide;
+  animation-duration: 2s;
+}
+
+.menuoptions2 {
+  background-color:#212529;
+}
+
+.menuoptions > div {
+  margin-top: 7px;
 }

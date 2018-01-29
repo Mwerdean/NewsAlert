@@ -126,6 +126,8 @@ class Home extends Component {
             </div>
         </div>
         <div className="infopage">
+        <div className="emptyten"></div> 
+        <div>
             <div className="centertext">
                 <div className="centerlarge">SERVICES</div>
                 <div className="centersmall">We provide community driven info straight to your phone</div>
@@ -146,10 +148,9 @@ class Home extends Component {
                     <div className="infot">Responsive Design</div>
                     <div className="infos">On the run? This website is mobile friendly!</div>
                 </div>
-
             </div>
-          
-
+            </div>
+            <div className="emptyten"></div> 
         </div>
 
 
