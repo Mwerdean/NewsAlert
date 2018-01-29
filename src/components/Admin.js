@@ -7,7 +7,7 @@ class Admin extends Component {
     constructor(){
         super()
         this.state = {
-            messageInput:"",
+            messageInput:[],
             numbers:[],
             numbers2:[]
         }
@@ -31,6 +31,7 @@ class Admin extends Component {
     }
 
     send() {
+        console.log(this.state.messageInput)
         let myObj3 = {
             numbers: this.state.numbers2,
             message: this.state.messageInput
@@ -38,6 +39,7 @@ class Admin extends Component {
         axios.post('/twilio' , myObj3).catch((error) => {
             console.log(error)
         })
+       
     }
 
     ChangeMessageInput(value){

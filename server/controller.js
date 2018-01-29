@@ -28,11 +28,13 @@ module.exports = {
     },
 
     
-    send(req,res){
+    send(req){
         const db = req.app.get('db')
         const { body } = req
         numbers2.push(body.numbers)
-        const message = [body.message]
+        console.log('numbers list' , body.numbers)
+        const message = body.message
+        console.log(body.message)
         (numbers2.forEach(function(value, index){console.log(value)
             setTimeout(function(){
                 client.messages.create({

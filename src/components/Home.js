@@ -97,7 +97,6 @@ class Home extends Component {
         <Box bgColor={colors[1]} width={styles[1].width} className="box2"/>
         <Box bgColor={colors[2]} width={styles[2].width} className="box3"/>
         <Box bgColor={colors[3]} width={styles[3].width} className="box4"/>
-
     <div>
         <div className="subscribe">
             <div className="empty"/>
