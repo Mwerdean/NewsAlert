@@ -27,7 +27,7 @@ class Create extends Component {
     }
 
     createPost() {
-        axios.post('http://localhost:3000/post_database' , {
+        axios.post('/post_database' , {
             auth0_id: this.props.user.auth0_id,
             title: this.state.titleInput,
             content: this.state.textInput
